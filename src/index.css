@@ -1,0 +1,55 @@
+/* A handful of small global touches that keep the UI feeling polished.
+   Everything else is handled with Tailwind utility classes directly in components. */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Thin, unobtrusive scrollbars — most SaaS dashboards style these */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Smooth, consistent transitions for interactive elements */
+button,
+a,
+.card {
+  transition: all 150ms ease;
+}
+
+/* Subtle page-transition used in Layout.jsx when the route changes */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-page-in {
+  animation: page-in 200ms ease-out;
+}
+
+/* Phase 14 polish */
+::selection { background: #e0e7ff; color: #312e81; }
+button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
